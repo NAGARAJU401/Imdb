@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#a9dccd"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.user.movies.Movie_Details"
+    tools:showIn="@layout/activity_movie__details">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/Poster"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="@dimen/fab_margin" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#0d0d0d"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Release"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#45d92b"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#2d48ab"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/revenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#ab3f3f"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#d682de"
+                    android:textStyle="normal" />
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/voteaverage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+            <at.blogc.android.views.ExpandableTextView
+                android:id="@+id/overview"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:animation_duration="750"/>
+
+            <!-- Optional parameter animation_duration: sets the duration of the expand animation -->
+
+            <ImageButton
+                android:id="@+id/button_toggle"
+                android:layout_width="wrap_content"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_below="@+id/overview"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/button"
+                android:layout_height="wrap_content"
+                />
+
+            <ImageView
+                android:id="@+id/favorites"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/button_toggle"
+                android:layout_marginEnd="65dp"
+                android:layout_toStartOf="@+id/watchlisttitle"
+        />
+
+            <TextView
+                android:id="@+id/favtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_alignEnd="@+id/button_toggle"
+                android:layout_below="@+id/favorites"
+                android:layout_marginEnd="52dp"
+                android:text="My favourites" />
+
+            <TextView
+                android:id="@+id/watchlisttitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@+id/favtitle"
+                android:layout_alignBottom="@+id/favtitle"
+                android:layout_toEndOf="@+id/button_toggle"
+                android:text="My Watchlist" />
+
+            <ImageView android:layout_below="@+id/button_toggle"
+                android:layout_toRightOf="@+id/favorites"
+                android:id="@+id/watchlist"
+                android:src="@drawable/watchlist"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="50dp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/favtitle"
+                android:layout_height="wrap_content">
+
+                <TextView android:layout_above="@+id/detailposter"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/post"
+                    android:text="Posters"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_below="@id/favtitle"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/detailposter"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Trailers"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:text="Trailers"/>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/trailersrv"
+                    android:layout_height="wrap_content">
+
+
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cast"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cast">
+
+                </android.support.v7.widget.RecyclerView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="crew"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/crew">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+
+                  </RelativeLayout>
+
+    </ScrollView>
+</android.support.v4.widget.NestedScrollView>

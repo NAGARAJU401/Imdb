@@ -1,0 +1,61 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.user.movies.MainActivity">
+
+
+<item android:title="My Favorites"
+    app:showAsAction="never"
+    android:id="@+id/fave"
+    android:orderInCategory="1"
+    />
+
+<item android:title="My Watchlist"
+    app:showAsAction="never"
+    android:id="@+id/wlmv"
+    android:orderInCategory="2">
+
+</item>
+    <item android:title="Refresh"
+        app:showAsAction="never"
+        android:id="@+id/refresh"
+        android:orderInCategory="3">
+
+    </item>
+    <item android:id="@+id/moviesdropdown"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/sharepost"
+        android:title="moviemenu"
+        >
+        <menu>
+            <item
+                android:id="@+id/Most_Popular"
+                android:title="Most Popular"
+                android:orderInCategory="1"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/Latest_Movies"
+                android:title="Latest movies"
+                android:orderInCategory="2"
+                app:showAsAction="never"
+                />
+            <item
+                android:id="@+id/Now_Playing"
+                android:title="Now Playing"
+                android:orderInCategory="3"
+                app:showAsAction="never"
+
+                />
+            <item
+                android:id="@+id/Top_Rated"
+                android:title="Top Rated"
+                android:orderInCategory="4"
+                app:showAsAction="never"
+                />
+
+        </menu>
+
+
+    </item>
+
+</menu>

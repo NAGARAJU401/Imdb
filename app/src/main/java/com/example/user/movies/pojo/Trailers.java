@@ -1,7 +1,9 @@
 
-package com.example.user.movies;
+package com.example.user.movies.pojo;
 
 import java.util.List;
+
+import com.example.user.movies.TrailerResult;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

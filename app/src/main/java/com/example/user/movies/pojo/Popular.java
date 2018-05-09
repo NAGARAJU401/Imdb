@@ -1,4 +1,4 @@
-package com.example.user.movies;
+package com.example.user.movies.pojo;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.user.movies.ApiClient;
+import com.example.user.movies.ApiInterface;
+import com.example.user.movies.MyAdapter;
+import com.example.user.movies.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +40,7 @@ Result result;
         adapter=new MyAdapter(Popular.this,results);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(Popular.this,DividerItemDecoration.VERTICAL));
-        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
        Call<Main>getpopularmoviescall=apiService.getpopularmovies("f47dd4de64c6ef630c2b0d50a087cc33",1);
        getpopularmoviescall.enqueue(new Callback<Main>() {
            @Override

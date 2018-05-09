@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import com.example.user.movies.pojo.Main;
+import com.example.user.movies.pojo.Result;
+
 import java.util.ArrayList;
 import java.util.List;
 

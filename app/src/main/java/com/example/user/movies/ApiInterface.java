@@ -1,5 +1,11 @@
 package com.example.user.movies;
 
+import com.example.user.movies.pojo.CastnCrew;
+import com.example.user.movies.pojo.Main;
+import com.example.user.movies.pojo.Posters;
+import com.example.user.movies.pojo.Result;
+import com.example.user.movies.pojo.Trailers;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -12,10 +18,10 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("movie/upcoming")
-    Call<Main> getUpComingMovies(@Query("api_key") String apiKey,@Query("page")Integer page);
+    Call<Main> getUpComingMovies(@Query("api_key") String apiKey, @Query("page")Integer page);
 
     @GET("movie/{id}/images")
-    Call<Posters>getmovieimages (@Path("id")int id,@Query("api_key")String apiKey);
+    Call<Posters>getmovieimages (@Path("id")int id, @Query("api_key")String apiKey);
 
     @GET("movie/{id}")
     Call<Result> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
@@ -33,10 +39,10 @@ public interface ApiInterface {
     Call<Main>gettopratedmovies(@Query("api_key")String apiKey,@Query("page")Integer page);
 
     @GET("movie/{id}/videos")
-    Call<Trailers>gettrailermovies(@Path("id")int id ,@Query("api_key") String apiKey);
+    Call<Trailers>gettrailermovies(@Path("id")int id , @Query("api_key") String apiKey);
 
 
     @GET("movie/{id}/credits")
-    Call<CastnCrew>getcastncrewdetails(@Path("id")int id ,@Query("api_key")String apiKey);
+    Call<CastnCrew>getcastncrewdetails(@Path("id")int id , @Query("api_key")String apiKey);
 
 }

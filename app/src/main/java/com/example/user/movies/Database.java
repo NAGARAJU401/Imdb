@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import com.example.user.movies.pojo.Result;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,5 +126,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return false;
     }
+
+
     }
 

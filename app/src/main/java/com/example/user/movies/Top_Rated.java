@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.user.movies.pojo.Main;
+import com.example.user.movies.pojo.Result;
+
 import java.util.ArrayList;
 import java.util.List;
 

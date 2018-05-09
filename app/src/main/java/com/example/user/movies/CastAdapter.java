@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.user.movies.pojo.Cast;
+import com.example.user.movies.pojo.CastnCrew;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

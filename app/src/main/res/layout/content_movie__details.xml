@@ -152,7 +152,6 @@
             <ImageView android:layout_below="@+id/button_toggle"
                 android:layout_toRightOf="@+id/favorites"
                 android:id="@+id/watchlist"
-                android:src="@drawable/watchlist"
                 android:layout_width="60dp"
                 android:layout_marginLeft="10dp"
                 android:layout_height="50dp" />

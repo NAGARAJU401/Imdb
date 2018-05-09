@@ -10,13 +10,19 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.user.movies.pojo.Cast;
+import com.example.user.movies.pojo.CastnCrew;
+import com.example.user.movies.pojo.Crew;
+import com.example.user.movies.pojo.Poster;
+import com.example.user.movies.pojo.Posters;
+import com.example.user.movies.pojo.Result;
+import com.example.user.movies.pojo.Trailers;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -108,6 +114,14 @@ WatchlistDatabase watchlistDatabase;
             favorites.setImageResource(R.drawable.favotite);
         }
 
+        if(!watchlistDatabase.isMovieFavourite(id)){
+            watchlist.setTag("not_inWatchlist");
+            watchlist.setImageResource(R.drawable.watchlist_disable_normal);
+        }else if(watchlistDatabase.isMovieFavourite(id)){
+            watchlist.setTag("inwatchlist");
+            watchlist.setImageResource(R.drawable.watchlist_enable_normal);
+        }
+
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<Result>getmoviedetailscall=apiService.getMovieDetails(id,"f47dd4de64c6ef630c2b0d50a087cc33");
         getmoviedetailscall.enqueue(new Callback<Result>()
@@ -158,6 +172,7 @@ WatchlistDatabase watchlistDatabase;
                     {
                         if (expandableTextView.isExpanded())
                         {
+
                             buttonToggle.setImageResource(R.drawable.button);
                             expandableTextView.collapse();
 
@@ -190,17 +205,30 @@ WatchlistDatabase watchlistDatabase;
                     public void onClick(View view) {
                         if(favorites.getTag()=="fav"){
                             database.removeFromFav(id);
+                            Toast.makeText(Movie_Details.this, "removed from favourites", Toast.LENGTH_SHORT).show();
+                            favorites.setImageResource(R.drawable.unfavorite);
+                            favorites.setTag("Not_fav");
                         }else if(favorites.getTag()=="Not_fav"){
                             database.addmovie(id,response.body().getTitle(),response.body().getPosterPath());
                             favorites.setImageResource(R.drawable.favotite);
+                            favorites.setTag("fav");
                         }
                     }
                 });
                 watchlist.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        watchlistDatabase.addwatchlist(id,response.body().getTitle(),response.body().getPosterPath(),"YES");
-                        watchlist.setEnabled(false);
+                        if(watchlist.getTag()=="inwatchlist"){
+                            watchlistDatabase.removeFromFav(id);
+                            Toast.makeText(Movie_Details.this, "removed from watchlist", Toast.LENGTH_SHORT).show();
+                            watchlist.setImageResource(R.drawable.watchlist_disable_normal);
+                            watchlist.setTag("not_inWatchlist");
+                        }else if(watchlist.getTag()=="not_inWatchlist"){
+                            watchlistDatabase.addwatchlist(id,response.body().getTitle(),response.body().getPosterPath(),"YES");
+                            watchlist.setImageResource(R.drawable.watchlist_enable_normal);
+                            watchlist.setTag("inwatchlist");
+                        }
+
                     }
                 });
             }

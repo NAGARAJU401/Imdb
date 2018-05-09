@@ -1,7 +1,6 @@
 package com.example.user.movies;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.user.movies.pojo.Crew;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,5 +1,5 @@
 
-package com.example.user.movies;
+package com.example.user.movies.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
